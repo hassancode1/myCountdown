@@ -2,24 +2,29 @@ import React from "react";
 import "./App.css";
 
 function Countdown() {
-  let seconds = 60;
-  let minutes = 60;
+  let seconds = 5;
+  let minutes = 5;
+  let hours = 5;
 
   function StartCountDown() {
     function MyInterval() {
-      seconds -= 1; // decrement the by 1 each time the fun was call
       document.getElementById("second").innerHTML = seconds;
       document.getElementById("minutes").innerHTML = minutes;
-
-      if (seconds < !0) {
-        //if sec is not less than zero.
+      document.getElementById("hours").innerHTML = hours;
+      seconds -= 1; // decrement the by 1 each time the fun was call
+       
+        //if sec is exactly zero.
         if (seconds === 0) {
           minutes -= 1;
-          seconds = 60; //since second is set seconds back to 60
+          seconds = 5; //since second is set seconds back to 60
           if (minutes === 0) {
-            clearInterval(Inverval);
+            hours -= 1;
+            minutes = 5; //since minutes is set seconds back to 60
+            if (hours === 0) {
+              clearInterval(Inverval);
+              alert("Time Ends Exam Submitted successfully...");
+            }
           }
-        }
       }
     }
 
@@ -36,9 +41,11 @@ function Countdown() {
             <td>Seconds</td>
           </tr>
           <tr>
-            <td>HH</td>
             <td>
-             <span id="minutes"></span>
+              <span id="hours"></span>
+            </td>
+            <td>
+              <span id="minutes"></span>
             </td>
             <td>
               <span id="second"></span>
