@@ -12,6 +12,8 @@
   width: 200px;
   margin:30px auto;
   height: 80px; 
+  text-align: center;
+  font-size: large;
 }
 
 .container button{
