@@ -5,6 +5,7 @@ function Countdown() {
   let seconds = 60;
   let minutes = 30;
   let hours = 2;
+ 
 
   function StartCountDown() {
     function MyInterval() {
@@ -12,7 +13,7 @@ function Countdown() {
       document.getElementById("minutes").innerHTML = minutes;
       document.getElementById("hours").innerHTML = hours;
       seconds -= 1; // decrement the by 1 each time the fun was call
-    
+
 
       // if sec is exactly zero.
       if (seconds <= 0) {
@@ -24,7 +25,6 @@ function Countdown() {
           if (hours < 0) {
             hours = 0;
           }
-        }
       }
 
 
