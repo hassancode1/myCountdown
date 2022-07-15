@@ -2,9 +2,10 @@ import React from "react";
 import "./App.css";
 
 function Countdown() {
-  let seconds = 5;
-  let minutes = 5;
-  let hours = 5;
+  let seconds = 60;
+  let minutes = 30;
+  let hours = 2;
+ 
 
   function StartCountDown() {
     function MyInterval() {
@@ -12,20 +13,29 @@ function Countdown() {
       document.getElementById("minutes").innerHTML = minutes;
       document.getElementById("hours").innerHTML = hours;
       seconds -= 1; // decrement the by 1 each time the fun was call
-       
-        //if sec is exactly zero.
-        if (seconds === 0) {
-          minutes -= 1;
-          seconds = 5; //since second is set seconds back to 60
-          if (minutes === 0) {
-            hours -= 1;
-            minutes = 5; //since minutes is set seconds back to 60
-            if (hours === 0) {
-              clearInterval(Inverval);
-              alert("Time Ends Exam Submitted successfully...");
-            }
+
+
+      // if sec is exactly zero.
+      if (seconds <= 0) {
+        minutes -= 1;
+        seconds = 60; //since second is set seconds back to 60
+        if (minutes <= 0 && hours !== 0) {
+          hours -= 1;
+          minutes = 60; //since minutes is set seconds back to 60
+          if (hours < 0) {
+            hours = 0;
           }
       }
+
+
+      if (hours <= 0 && minutes <= 0) {
+        if (seconds <= 0) {
+          clearInterval(Inverval);
+          alert("Time Ends Exam Submitted successfully...");
+        }
+      }
+
+
     }
 
     let Inverval = setInterval(MyInterval, 1000); //this fun run after every 1sec.
